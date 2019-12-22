@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="scss\main-cm.css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Mansalva&display=swap"
+            rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>Cyber Monday</title>
+    </head>
+    <body>
+        <header class="temp">
+        <p><a href="index.html">tilbage til oversigt</a></p>
+        </header>
+        <div id="cyber-mon">
+            <section class="page-wrapper">
+                <article class="header">
+                    <section class="header__banner">
+                        <h1 class="header__title" style=" background-image: url('./assets/cyber-gif.gif');">Cyber Monday</h1>
+                    </section>
+                    <section class="header__dates">
+                        <h2><div id="header__date"></div></h2>
+                        <p>Cyber Monday 2020</p>
+                    </section>
+                    <h2 class="clock__content--title">
+                        Hold dig klar til årets største online shoppingdag: <strong>Cyber Monday.</strong>
+                    </h2>
+                </article>
+                <article class="info" style="background-image: url('./assets/banner-coffee.jpg');">
+                    <section class="wrapper">
+                        <h2 class="info__title">Nyd kaffen, mens du shopper alle de gode tilbud</h2>
+                        <p class="info__text">
+                            <div id="info__date"></div>
+                        </strong>
+                        <br>Hér vil alle vores tilbud blive udgivet på siden.<br>Tilbuddene vil være tilgængelige fra tidligt mandag morgen.<br></p>
+                    </section>      
+                </article>
+                
+                <article class="facts">
+                        <section class="facts__header">
+                            <h2 class="facts__title">Facts om Cyber Monday</h2>
+                        </section>
+                        <div class="wrapper">
+                            <p class="facts__text"><strong>Cyber Monday</strong> foregår primært online og altid mandagen efter <strong>Black Friday</strong>. <br>Så fandt du ikke hvad du søgte om fredagen, er der goder chancer om mandagen.<br> 
+                            Konceptet omkring <strong>Cyber Monday</strong> blev i tidernes morgen startet af netbutikkerne, som en pendant til <strong>Black Friday</strong>, der på daværende tidspunkt "tilhørte" de fysiske butikker.<br>
+                            Hér hos BeautyCos benytter vi os af <strong>Cyber Monday</strong> til at give vores kunder ekstra gode tilbud. <br><br>Så stå glad op mandag morgen og få købt de sidste julegaver, eller forkæl dig selv med nogle af vores lækre produkter til en billig pris.
+                            </p>
+                        </div>
+                </article>
+                <section class="signup" style="background-image: url('./assets/black-banner.jpg');">
+                        <p class="signup__text">Tilmeld dig nyhedsbrevet hér:</p>
+                        <form action="news.php" class="signup__action">
+                            <input type="text" placeholder="Din email..." name="email">
+                            <input type="submit" value="Tilmeld mig">
+                        </form>
+                </section>
+                <article class="cyber">
+                    <section class="cyber__header">
+                            <h2 class="cyber__title">Black Friday / Cyber Monday / Singles Day?</h2>
+                    </section>
+                    <div class="wrapper">
+                        <p class="cyber__text">
+                            Er du også lettere forvirret over alle de nye udsalgsdage, der popper op fra udlandet?<br>BeautyCos hjælper dig på vej!<br><a href="blackfriday.html">Black Friday</a> har ikke noget med Halloween at gøre på trods af det sorte. Derimod hænger den fint sammen med en anden "udsalgshøjtid" ved navn <a href="cybermonday.html">Cyber Monday.</a> Dette er en, udelukkende online, shoppingdag og falder altid mandagen efter <a href="blackfriday.html">Black Friday.</a><br>Den allerstørste shoppingdag har sit ophav i Kina og hedder <a href="singlesday.html">Singles day.</a><br>Tilbuddene gælder dog alle!<br><a href="singlesday.html">Singles day</a> falder altid på datoen 11/11 og dermed før <a href="blackfriday.html">Black Friday.</a>
+                        </p>
+                    </div>
+                </article>
+                
+            </section>
+        </div> 
+
+        <!-- tik tak watch -->
+        <script>
+            var cyberMondayDate = '30. november 2020';
+            var date = cyberMondayDate;
+
+            // Write the date + some text to the ID elements
+            document
+                .getElementById('header__date')
+                .innerHTML = date;
+            document
+                .getElementById('info__date')
+                .innerHTML = "Glæd dig til mandag morgen d. " + date + ".";
+
+            // Get the ID element for countdown text
+            var tikElement = document.getElementById('countdown__tik')
+
+            var markerElement = document.getElementById('countdown--tik');
+
+            var todaysDate = new Date();
+            var timeInSeconds = todaysDate.getSeconds();
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="scss\main.css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Mansalva&display=swap"
+            rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>Black Friday</title>
+    </head>
+    <body>
+        <div id="black-fri">
+            <section class="page-wrapper">
+                <header class="temp">
+                    <p><a href="index.html">tilbage til oversigt</a></p>
+                </header>
+                <article class="header" style="background-image: url('./assets/blush-storm.png');">
+                    <section class="header__banner">
+                        <h1 class="header__title">Black<br>Friday</h1>
+                    </section>
+                    <section class="header__dates">
+                        <h2><div id="dateA"></h2>
+                        <p>Black Friday 2020</p>
+                    </section>
+                </article>
+                <h2 class="sub-title">Vi tæller ned til de bedste tilbud hér:</h2>    
+                <div id="countdown--clock">
+                    <div class="countdownbox__beauty" id="shamp">
+                        <figure class="bottle">
+                            <img src="assets/shampoo.png">
+                        </figure>
+                        <section class="shampoo">
+                            <div class="wrap">
+                                <h2>Hårvaske</h2>
+                                <figure class="countdown__shampoo">
+                                    <!-- <div class="overlay">
+                                        <div class="hover-text-woman">
+                                            <ul>
+                                                <h2>Gode råd om hårvask:</h2>
+                                                <li>
+                                                    <p>Vask ikke håret mere end to til tre gange om ugen</p>
+                                                </li>
+                                                <li>
+                                                    <p>Vælg shampoo efter din hårbundstype</p>
+                                                </li>
+                                                <li>
+                                                    <p>Brug kun balsam i langt hår</p>
+                                                </li>
+                                                    <p>Hilsen hairstylisten hos BeautyCos</p>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+                                </figure>
+                            </div>
+                            <svg>
+                                <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                                <circle id="circle-shampoo" r="50" cx="75" cy="75" class="progress"></circle>
+                            </svg>
+                            <div class="second-wrap">
+                                <div id="countdown__shampoo"></div>
+                                <!-- <section class="infoBtn">
+                                    <button onclick="showShampooFunction()"><p>Tips & Tricks</p></button>
+                                    <div id="shampooText">
+                                        <ul>
+                                            <h2>- Hårvask -</h2>
+                                            <li>
+                                                <p>Vask ikke håret mere end to til tre gange om ugen</p>
+                                            </li>
+                                            <li>
+                                                <p>Vælg shampoo efter din hårbundstype</p>
+                                            </li>
+                                            <li>
+                                                <p>Brug kun balsam i langt hår</p>
+                                            </li>
+                                                <p>Hilsen frisøren</p>
+                                        </ul>
+                                    </div>
+                                </section> -->
+                            </div>
+                        </section>
+                    </div>
+                    <div class="countdownbox" id="day">
+                        <section class="days">
+                            <h2>Dage</h2>
+                            <div id="countdown__days"></div>
+                            <svg>
+                                <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                                <circle id="circle-days" r="50" cx="75" cy="75" class="progress"></circle>
+                            </svg>
+                        </section>
+                     </div>
+                    <div class="countdownbox" id="hour">
+                        <section class="hours">
+                            <h2>Timer</h2>
+                            <div id="countdown__hours"></div>
+                             <svg>
+                                <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                                 <circle id="circle-hours" r="50" cx="75" cy="75" class="progress"></circle>
+                            </svg>
+                        </section>
+                    </div>    
+                    <div class="countdownbox" id="minute">
+                    <section class="minutes">
+                        <h2>Minutter</h2>
+                        <div id="countdown__minutes"></div>
+                        <svg>
+                            <circle class="base-circle" r="50" cx="75" cy="75" ></circle>  
+                            <circle id="circle-min" r="50" cx="75" cy="75" class="progress"></circle>
+                        </svg>
+                    </section>
+                    </div>
+                    <div class="countdownbox" id="seco">
+                    <section class="seconds">
+                            <h2>Sekunder</h2>
+                            <div id="countdown__seconds"></div>
+                            <svg>
+                                <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                                <circle id="circle-sec" r="50" cx="75" cy="75" class="progress"></circle>
+                            </svg>
+                        </section>
+                    </div>
+                    <div class="countdownbox__beauty" id="shav">
+                        <figure class="shaving">
+                                <img src="assets/shave.png"></figure>
+                        <section class="shaves">
+                            <div class="wrap">
+                                <h2>Shaves</h2>
+                                <figure class="countdown__shaves">
+                                    <!-- <div class="overlay">
+                                        <div class="hover-text-man">
+                                            <ul>
+                                                <h2>Guide til perfekt barbering:</h2>
+                                                <li>
+                                                    <p>Fugt altid hudden med varmt vand inden barbering.</p>
+                                                </li>
+                                                <li>
+                                                    <p>Skrab som hovedregel altid i samme retning som din hårvækst. Ønskes en
+                                                        tættere barbering sluttes af med en tur i modsatte retning</p>
+                                                </li>
+                                                <li>
+                                                    <p>Skyl derefter huden i dejligt koldt vand og tør efter med blødt håndklæde.</p>
+                                                </li>
+                                                <li>
+                                                    <p>Forkæl til sidst dig selv med en god fugtgivende creme eller aftershave</p>
+                                                </li>
+                                                <p>Hilsen hudeksperten hos BeautyCos</p>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+                                </figure>
+                            </div>
+                            <svg>
+                                <circle class="base-circle" r="50" cx="75" cy="75"></circle>
+                                <circle id="circle-shaves" r="50" cx="75" cy="75" class="progress"></circle>
+                            </svg>
+                        </section>
+                        <div id="countdown__shaves"></div>
+                        <div class="second-wrap" id="info-shave">
+                            <!-- <section class="infoBtn">
+                                <button onclick="showShaveFunction()">
+                                    <p>Tips & Tricks</p>
+                                </button>
+                                <div id="shaveText">
+                                    <ul>
+                                        <h2>- Barbering -</h2>
+                                            <li>
+                                                <p>Fugt altid huden med varmt vand inden barbering.</p>
+                                            </li>
+                                            <li>
+                                                <p>Skrab som hovedregel altid i samme retning som din hårvækst. Ønskes en tættere barbering sluttes af med en tur i modsatte retning.</p>
+                                            </li>
+                                             <li>
+                                                <p>Skyl derefter huden i dejligt koldt vand og tør efter med blødt håndklæde.</p>
+                                            </li>
+                                            <li>
+                                                <p>Forkæl til sidst dig selv med en god fugtgivende creme eller aftershave</p>
+                                            </li>
+                                            <p>Hilsen hudeksperten</p>
+                                    </ul>
+                                </div>
+                            </section> -->
+                        </div>
+                    </div>
+                </div>
+                <article class="info">
+                    <section class="wrapper">
+                            <h2 class="info__title">Vi glæder os allerede til at give jer de bedste tilbud!</h2><div id="dateB"></div>
+                            <p class="info__text">
+                            <strong><div id="dateC"></div></strong></p><br>
+                            <p class="info__text">
+                            Så hold dig klar og vær en af de første til at få fat på vores gode tilbud.<br>
+                            Derudover vil vi i løbet af dagen udsende et nyhedsbrev hver anden time fra klokken 8 til klokken 16 med et nyt super tilbud.<br><br>Og
+                            tilmeld dig vores nyhedsbrev allerede i dag, så er du sikker på at modtage alle vores gode tilbud til Black Friday.
+                            </p>
+                        </section>       
+                </article>
+                
+                <article class="facts">
+                        <section class="facts__header">
+                            <h2 class="facts__title">Facts om Black Friday</h2>
+                        </section>
+                        <div class="wrapper">
+                            <p class="facts__text"><strong>Black Friday</strong> er en amerikansk tradition som vi har
+                                taget til os her i Europa også.<br>Dagen har siden 2015 været den største shoppingdag i USA.<br>I 2014 var der i USA ca. 141 millioner der shoppede på <strong>Black Friday</strong>.<br>De brugte tilsammen i alt over 57 mia. dollars.<br><strong>Black Friday</strong> er oprindeligt en begivenhed som kun var eksisterende i de fysiske butikker, men den dag i dag er en stor shoppedag både i de fysiske butikker men samtidigt også blevet en stor dag for webshops.<br>Navnet <strong>Black Friday</strong> kommer af den kæmpe menneskemængde som er ude for at få de bedste <strong>Black Friday</strong> tilbud.<br><br><strong>Black Friday</strong> refererer til at der er helt sort af mennesker.
+                            </p>
+                        </div>
+                    </article>
+                <section class="signup" style="background-image: url('./assets/black-banner.jpg');">
+                         <!-- Begin MailChimp Signup Form -->
+                    <h2 style="text-align: center; margin-top: 20px;"><span style="font-size: x-large; text-align: center;"><strong>Bliv opdateret med alle tilbud på Black Friday</strong></span></h2>
+                    <h3 style="text-align: center; margin-top: 10px;"><span style="font-size:large; text-align: center;"><strong>Tilmeld dig nyhedsbrevet her</strong></span></h3>
+                    <div>
+                        <div id="mc_embed_signup">
+                            <form id="mc-embedded-subscribe-form" class="validate" action="//beautycos.us6.list-manage.com/subscribe/post?u=7c4721f3ac10183acc3a81eb0&amp;id=161d5ff50a" method="post" name="mc-embedded-subscribe-form" target="_blank">
+                                <div style="position: absolute; left: -5000px;"><input tabindex="-1" name="b_7c4721f3ac10183acc3a81eb0_161d5ff50a" type="text" value="" /></div>
+                                <div id="mc_embed_signup_scroll" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin: auto; width: 50.5%; padding-top: 30px;">
+                                    <input id="mce-EMAIL" class="email" style="text-align: center; color: gray; border: none; border-radius: 4px; padding: 8px 10px;" name="EMAIL" type="email" value="Din email" /> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div class="clear"><input id="mc-embedded-subscribe" class="button" style="margin-left: 20px; background-color: #FF6666; color: white; border: none; border-radius: 4px; padding: 8px 15px;" name="subscribe" type="submit" value="Tilmeld"/></div>
+                                </div>
+                            </form>
+                        </div>
+                    <!--End mc_embed_signup--></div>
+                </section>
+                <article class="cyber">
+                    <section class="cyber__header">
+                            <h2 class="cyber__title">Black Friday / Cyber Monday / Singles Day?</h2>
+                            <!-- <h2 class="cyber__title">Cyber Monday?</h2>
+                            <h2 class="cyber__title">Singles Day?</h2> -->
+                    </section>
+                    <div class="wrapper">
+                        <p class="cyber__text">
+                            Er du også lettere forvirret over alle de nye udsalgsdage, der popper op fra udlandet?<br>BeautyCos hjælper dig på vej!<br><a href="blackfriday.html">Black Friday</a> har ikke noget med Halloween at gøre på trods af det sorte. Derimod hænger den fint sammen med en anden "udsalgshøjtid" ved navn <a href="cybermonday.html">Cyber Monday.</a> Dette er en, udelukkende online, shoppingdag og falder altid mandagen efter <a href="blackfriday.html">Black Friday.</a><br>Den allerstørste shoppingdag har sit ophav i Kina og hedder <a href="singlesday.html">Singles day.</a><br>Tilbuddene gælder dog alle!<br><a href="singlesday.html">Singles day</a> falder altid på datoen 11/11 og dermed før <a href="blackfriday.html">Black Friday.</a>
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div> 
+        
+        <!-- for click function hover text -->
+        <script>
+            function showShampooFunction() {
+                var element = document.getElementById("shampooText");
+                if (element.style.display === "none") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            }
+            
+            function showShaveFunction() {
+                var element = document.getElementById("shaveText");
+                if (element.style.display === "none") {
+                    element.style.display = "flex";
+                } else {
+                    element.style.display = "none";
+                }
+            }
+        </script>
+
+        <!-- timers with progess circles -->
+        <script>
+                    // Set the countdown date to Black Friday
+                    var blackFridayDate = '27. november 2020';
+                    var date = blackFridayDate;
+                    
+                    document.getElementById('dateA').innerHTML = "fredag d. " + date;
+                    document.getElementById('dateB').innerHTML = "Sæt et stort kryds i kalenderen d.: " + date;
+                    document.getElementById('dateC').innerHTML = "Tilbuddene vil være tilgængelige fra klokken 00:01, fredag d. " + date;
+
+                    // Get the ID element for each countdown text
+                    var countdownDaysEl = document.getElementById('countdown__days');
+                    var countdownHoursEl = document.getElementById('countdown__hours');
+                    var countdownMinEl = document.getElementById('countdown__minutes');
+                    var countdownSecEl = document.getElementById('countdown__seconds');
+                    var shampooElement = document.getElementById('countdown__shampoo');
+                    var shaveElement = document.getElementById('countdown__shaves');
+
+                    
+                    // Get the ID element for each circle progress
+                    var circleSec = document.getElementById('circle-sec');
+                    var circleMin = document.getElementById('circle-min');
+                    var circleHours = document.getElementById('circle-hours');
+                    var circleDays = document.getElementById('circle-days');
+                    var circleShampoo = document.getElementById('circle-shampoo');
+                    var circleShaves = document.getElementById('circle-shaves');
+                    
+                    // Define total time in sec/min/hours/days, with _ has digits
+                    var wholeTime = Date.parse(blackFridayDate) - Date.parse(new Date());
+                    var countdownDays_ = (((wholeTime/1000)/60)/60) / 24;
+                    var countdownDays = Math.floor(countdownDays_);
+                    var countdownHours_ = (countdownDays_ - countdownDays) * 24;
+                    var countdownHours = Math.floor(countdownHours_);
+                    var countdownMinutes_ = (countdownHours_ - countdownHours) * 60;
+                    var countdownMinutes = Math.floor(countdownMinutes_);
+                    var countdownSeconds_ = (countdownMinutes_ - countdownMinutes) * 60;
+                    var countdownSeconds = Math.floor(countdownSeconds_);
+                    // Specific for the Beauty circles
+                    var countdownShampoo = Math.floor(countdownDays / 3);
+                    var countdownShaves = Math.floor(countdownDays / 7);
+
+                    // Set the content for time
+                    countdownDaysEl.textContent = Math.floor(countdownDays);
+                    countdownHoursEl.textContent = Math.floor(countdownHours);
+                    countdownMinEl.textContent = Math.floor(countdownMinutes);
+                    countdownSecEl.textContent = Math.floor(countdownSeconds);
+                    shampooElement.textContent = countdownShampoo;
+                    shaveElement.textContent = countdownShaves;
+
+                    // calculate the circumference for circle
+                    let length = Math.PI * 2 * 50; // 50 is the radius of the circle
+                    // set the default circle to the calculated length
+                    circleDays.style.strokeDasharray = length;
+                    circleHours.style.strokeDasharray = length;
+                    circleMin.style.strokeDasharray = length;
+                    circleSec.style.strokeDasharray = length;
+                    circleShampoo.style.strokeDasharray = length;
+                    circleShaves.style.strokeDasharray = length;
+
+                    
+                    // function for shampoo 
+                    updateCircleShampoo(countdownShampoo);
+                    function updateCircleShampoo(value) {
+                        var offset = - length - (length  * value / (30));
+                        circleShampoo.style.strokeDashoffset = offset;
+                    }
+
+                    // function for shaves 
+                    updateCircleShaves(countdownShaves);
+                    function updateCircleShaves(value) {
+                        var offset = - length - (length  * value / (30));
+                        circleShaves.style.strokeDashoffset = offset;
+                    }
+
+
+                    // function for circle days
+                    updateCircleDays(countdownDays);
+                    function updateCircleDays(value) {
+                        var offset = - length - (length * value / (45));
+                        circleDays.style.strokeDashoffset = offset;
+                    } 
+                    
+                    // function for circle hours
+                    updateCircleHours(countdownHours);
+                    function updateCircleHours(value) {
+                        var offset = - length - (length * value / (24));
+                        circleHours.style.strokeDashoffset = offset;
+                    } 
+                    
+                    updateCircleMin(countdownMinutes);
+                    // function for circle minutes
+                    function updateCircleMin(value) {
+                        var offset = - length - (length * value / (60));
+                        circleMin.style.strokeDashoffset = offset;
+                    } 
+                    
+                    updateCircle(countdownSeconds);
+                    // function for circle seconds
+                    function updateCircle(value) {
+                        var offset = - length - (length * value / (60));
+                        circleSec.style.strokeDashoffset = offset;
+                    }
+                    
+                    // place an interval for each second in Jquery
+                    // if statements inside controls the change in minutes/hours/days progress
+                    $(document).ready(function() {
+
+                        // countdown for seconds
+                        setInterval(function() {
+                            // the remaining time
+                            let remainSeconds = Date.parse(new Date()) + countdownSeconds; 
+                            // make countdown from 60 to 0
+                            countdownSeconds = --countdownSeconds <= -1 ? 59 : countdownSeconds;
+                            // set the above to show as content in the text element for seconds
+                            countdownSecEl.textContent = countdownSeconds;
+                            
+                                if (countdownSeconds === 59) {
+                                countdownMinutes = --countdownMinutes <= -1 ? 59 : countdownMinutes;
+                            
+                                let remainMinutes = Date.parse(new Date()) + countdownMinutes; 
+                                countdownMinEl.textContent = countdownMinutes;
+
+                                minutesLeft = Math.round(remainMinutes - Date.parse(new Date()));
+                                updateCircleMin(minutesLeft);
+
+                                    if (countdownMinutes === 0) {
+                                    countdownHours = --countdownHours <= 0 ? 24 : countdownHours;
+                                    // set the above to show as content in the text element for minutes
+                                    countdownHoursEl.textContent = Math.floor(countdownHours);
+
+                                    let remainHours = Date.parse(new Date()) + countdownHours; 
+                                    // update the circle
+                                    hoursLeft = Math.round(remainHours - Date.parse(new Date()));
+                                    updateCircleHours(hoursLeft);
+
+                                        if ( countdownHours === 24) {
+                                        countdownDays = --countdownDays <= 0 ? 45 : countdownDays;
+                                        // set the above to show as content in the text element for minutes
+                                        countdownDaysEl.textContent = Math.floor(countdownDays);
+                            
+                                        let remainDays = Date.parse(new Date()) + countdownDays; 
+                                        // update the circle
+                                        DaysLeft = Math.round(remainDays - Date.parse(new Date()));
+                                        updateCircleDays(daysLeft);
+
+                                        countdownShampoo = --countdownShampoo <= 0 ? 30 : countdownShampoo;
+                                        // set the above to show as content in the text element for seconds
+                                        shampooElement.textContent = countdownShampoo;
+
+                                        let remainShampoo = Date.parse(new Date()) + countdownShampoo; 
+                                        shampooLeft = Math.round(remainShampoo - Date.parse(new Date()));
+                                        updateCircleShampoo(shampooLeft);
+
+                                        countdownShaves = --countdownShaves <= 0 ? 30 : countdownShaves;
+                                        // set the above to show as content in the text element for seconds
+                                        shaveElement.textContent = countdownShaves;
+
+                                        let remainShaves = Date.parse(new Date()) + countdownShaaves; 
+                                        shavesLeft = Math.round(remainShaves - Date.parse(new Date()));
+                                        updateCircleShaves(shavesLeft);
+                                        } 
+                                    }
+                                }
+
+                            updateCircle(wholeTime);
+                            secondsLeft = Math.round(remainSeconds - Date.parse(new Date()));
+                            updateCircle(secondsLeft);
+
+                        }, 1000);
+
+                        
+
+                    });
+        </script>
+    </body>
+</html>
