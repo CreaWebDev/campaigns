@@ -4,16 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="scss\main.css">
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Main</title>
 </head>
-<body style="margin-top: 100px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:#09061b; color: white;">
+<body style="margin-top: 100px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:mistyrose; color: darkred;">
     <h2 style="text-align: center;">
-        Pick a page to view
+        Fun with JavaScript, SVG & Styling
     </h2>
-    <div style="text-align: center; margin-top: 50px;">
-        <a href="blackfriday.html" style="text-decoration: none; color: white;"; padding: 20px;">Black Friday</a>
+    <div id="black-fri" style="text-align: center; margin-top: 50px; display: flex; flex-direction: column; padding: 0 80px;">
+        <h3 style="color: darkslategrey;">Countdown clocks for New Years Eve!</h3><br>
+        <p style="color: gray">[ Watch when the minutes change ]</p>
+        <div id="countdown--clock">
+            <div class="countdownbox" id="day">
+                <section class="days">
+                    <h2>Dage</h2>
+                    <div id="countdown__days"></div>
+                    <svg>
+                        <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                        <circle id="circle-days" r="50" cx="75" cy="75" class="progress"></circle>
+                    </svg>
+                </section>
+             </div>
+            <div class="countdownbox" id="hour">
+                <section class="hours">
+                    <h2>Timer</h2>
+                    <div id="countdown__hours"></div>
+                     <svg>
+                        <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                         <circle id="circle-hours" r="50" cx="75" cy="75" class="progress"></circle>
+                    </svg>
+                </section>
+            </div>    
+            <div class="countdownbox" id="minute">
+            <section class="minutes">
+                <h2>Minutter</h2>
+                <div id="countdown__minutes"></div>
+                <svg>
+                    <circle class="base-circle" r="50" cx="75" cy="75" ></circle>  
+                    <circle id="circle-min" r="50" cx="75" cy="75" class="progress"></circle>
+                </svg>
+            </section>
+            </div>
+            <div class="countdownbox" id="seco">
+            <section class="seconds">
+                    <h2>Sekunder</h2>
+                    <div id="countdown__seconds"></div>
+                    <svg>
+                        <circle class="base-circle" r="50" cx="75" cy="75"></circle>  
+                        <circle id="circle-sec" r="50" cx="75" cy="75" class="progress"></circle>
+                    </svg>
+                </section>
+            </div>
+        </div>
+            <div id="testing"></div>
+        <!-- <a href="blackfriday.html" style="text-decoration: none; color: white; padding: 20px;">Black Friday</a>
         <a href="cybermonday.html" style="text-decoration: none; color: white; padding: 20px;";>Cyber Monday</a>
-        <a href="singlesday.html" style="text-decoration: none; color: white; padding: 20px;">Singles Day</a>
+        <a href="singlesday.html" style="text-decoration: none; color: white; padding: 20px;">Singles Day</a> -->
     </div>
+
+    <script>
+        // Set the countdown date to Black Friday
+        var newYears = '01. januar 2021';
+        var date = newYears;
+        
+        // Get the ID element for each countdown text
+        var countdownDaysEl = document.getElementById('countdown__days');
+        var countdownHoursEl = document.getElementById('countdown__hours');
+        var countdownMinEl = document.getElementById('countdown__minutes');
+        var countdownSecEl = document.getElementById('countdown__seconds');
+
+        
+        // Get the ID element for each circle progress
+        var circleSec = document.getElementById('circle-sec');
+        var circleMin = document.getElementById('circle-min');
+        var circleHours = document.getElementById('circle-hours');
+        var circleDays = document.getElementById('circle-days');
+        
+        // Define total time in sec/min/hours/days, with _ has digits
+        var wholeTime = Date.parse(newYears) - Date.parse(new Date());
+        var countdownDays_ = (((wholeTime/1000)/60)/60) / 24;
+        var countdownDays = Math.floor(countdownDays_);
+        var countdownHours_ = (countdownDays_ - countdownDays) * 24;
+        var countdownHours = Math.floor(countdownHours_);
+        var countdownMinutes_ = (countdownHours_ - countdownHours) * 60;
+        var countdownMinutes = Math.floor(countdownMinutes_);
+        var countdownSeconds_ = (countdownMinutes_ - countdownMinutes) * 60;
+        var countdownSeconds = Math.floor(countdownSeconds_);
+
+        // Set the content for time
+        countdownDaysEl.textContent = Math.floor(countdownDays);
+        countdownHoursEl.textContent = Math.floor(countdownHours);
+        countdownMinEl.textContent = Math.floor(countdownMinutes);
+        countdownSecEl.textContent = Math.floor(countdownSeconds);
+
+        // calculate the circumference for circle
+        let length = Math.PI * 2 * 50; // 50 is the radius of the circle
+        // set the default circle to the calculated length
+        circleDays.style.strokeDasharray = length;
+        circleHours.style.strokeDasharray = length;
+        circleMin.style.strokeDasharray = length;
+        circleSec.style.strokeDasharray = length;
+
+        
+        // function for circle days
+        updateCircleDays(countdownDays);
+        function updateCircleDays(value) {
+            var offset = - length - (length * value / (45));
+            circleDays.style.strokeDashoffset = offset;
+        } 
+        
+        // function for circle hours
+        updateCircleHours(countdownHours);
+        function updateCircleHours(value) {
+            var offset = - length - (length * value / (24));
+            circleHours.style.strokeDashoffset = offset;
+        } 
+        
+        updateCircleMin(countdownMinutes);
+        // function for circle minutes
+        function updateCircleMin(value) {
+            var offset = - length - (length * value / (60));
+            circleMin.style.strokeDashoffset = offset;
+        } 
+        
+        updateCircle(countdownSeconds);
+        // function for circle seconds
+        function updateCircle(value) {
+            var offset = - length - (length * value / (60));
+            circleSec.style.strokeDashoffset = offset;
+        }
+
+        function test() {
+            document.getElementById("testing").innerText = "One minute closer to New Years!";
+        }
+        
+        // place an interval for each second in Jquery
+        // if statements inside controls the change in minutes/hours/days progress
+        $(document).ready(function() {
+
+            // countdown for seconds
+            setInterval(function() {
+                // the remaining time
+                let remainSeconds = Date.parse(new Date()) + countdownSeconds; 
+                // make countdown from 60 to 0
+                countdownSeconds = --countdownSeconds <= -1 ? 59 : countdownSeconds;
+                // set the above to show as content in the text element for seconds
+                countdownSecEl.textContent = countdownSeconds;
+                
+                    if (countdownSeconds === 59) {
+                    countdownMinutes = --countdownMinutes <= -1 ? 59 : countdownMinutes;
+
+                    // executing the champagne bubbles
+                    test();
+                
+                    let remainMinutes = Date.parse(new Date()) + countdownMinutes; 
+                    countdownMinEl.textContent = countdownMinutes;
+
+                    minutesLeft = Math.round(remainMinutes - Date.parse(new Date()));
+                    updateCircleMin(minutesLeft);
+
+                        if (countdownMinutes === 0) {
+                        countdownHours = --countdownHours <= 0 ? 24 : countdownHours;
+                        // set the above to show as content in the text element for minutes
+                        countdownHoursEl.textContent = Math.floor(countdownHours);
+                        
+
+                        let remainHours = Date.parse(new Date()) + countdownHours; 
+                        // update the circle
+                        hoursLeft = Math.round(remainHours - Date.parse(new Date()));
+                        updateCircleHours(hoursLeft);
+
+                            if ( countdownHours === 24) {
+                            countdownDays = --countdownDays <= 0 ? 45 : countdownDays;
+                            // set the above to show as content in the text element for minutes
+                            countdownDaysEl.textContent = Math.floor(countdownDays);
+                
+                            let remainDays = Date.parse(new Date()) + countdownDays; 
+                            // update the circle
+                            DaysLeft = Math.round(remainDays - Date.parse(new Date()));
+                            updateCircleDays(daysLeft);
+
+                            } 
+                        }
+                    }
+
+                updateCircle(wholeTime);
+                secondsLeft = Math.round(remainSeconds - Date.parse(new Date()));
+                updateCircle(secondsLeft);
+
+            }, 1000);
+
+        });
+</script>
 </body>
 </html>
